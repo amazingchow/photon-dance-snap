@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package snappb;
+option go_package = "github.com/amazingchow/photon-dance-snap/snappb";
+
+message WalSnapshot
+{
+	uint64 index = 1;
+	uint64 term = 2;
+}
+
+message SnapshotMetadata
+{
+	uint64 index = 1;
+	uint64 term = 2;
+}
+
+message Snapshot
+{
+	bytes data = 1;
+	SnapshotMetadata metadata = 2;
+}
+
+message SavedSnapshot
+{
+	uint32 crc = 1;
+	bytes data = 2;
+}
